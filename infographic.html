@@ -1,200 +1,294 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Interactive Infographic</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-      body {
-        margin: 0;
-        font-family: 'Montserrat', sans-serif;
-        background: linear-gradient(135deg, royalblue 0%, #0c2054 100%);
-        color: #333;
-        min-height: 100vh;
-      }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Coming Wave: Technological Proliferation</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7fb;
+      color: #333;
+      margin: 0;
+      padding: 0 0 40px 0;
+      line-height: 1.6;
+    }
 
-      .back-button {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        color: white;
-        text-decoration: none;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 14px;
-        font-weight: bold;
-        background-color: rgba(255, 255, 255, 0.1);
-        padding: 10px 15px;
-        border-radius: 5px;
-        transition: background-color 0.2s ease;
-      }
+    .top-banner {
+      background-color: #27408B;
+      color: #ffffff;
+      text-align: center;
+      padding: 45px 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
 
-      .back-button:hover {
-        background-color: rgba(255, 255, 255, 0.3);
-      }
+    .top-banner h1 {
+      margin: 0 0 10px 0;
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
 
-      header {
-        background-color: rgba(0, 0, 0, 0.2);
-        color: white;
-        padding: 40px 20px;
-        text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      
-      h1 {
-        font-size: 48px;
-        margin: 0 0 10px 0;
-        font-weight: 700;
-        letter-spacing: -1px;
-      }
+    .top-banner p {
+      margin: 0;
+      font-size: 18px;
+      font-style: italic;
+      opacity: 0.9;
+    }
 
-      header p {
-        font-size: 18px;
-        font-style: italic;
-        color: rgba(255, 255, 255, 0.8);
-        margin: 0;
-      }
+    .instruction-text {
+      text-align: center;
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
 
-      .infographic-container {
-        padding: 60px 20px;
-        text-align: center;
-        max-width: 1200px; 
-        margin: 0 auto;
-      }
+    .infographic-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      text-align: center;
+    }
 
-      .placeholder-box {
-        background-color: white;
-        border-radius: 12px;
-        padding: 60px;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        position: relative;
-      }
+    .wave-img {
+      max-width: 100%;
+      max-height: 450px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      margin: 0 auto 30px auto;
+      display: block;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
 
-      .wave-img {
-        max-width: 100%;
-        max-height: 450px; /* Prevents tall portrait images from stretching the page too far */
-        width: auto;
-        height: auto;
-        object-fit: contain; /* Ensures the whole image remains visible */
-        border-radius: 8px;
-        margin: 0 auto 30px auto;
-        display: block;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      }
+    h2 {
+      color: #4169E1;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
 
-      h2 {
-        color: royalblue;
-        font-size: 32px;
-        margin: 0 0 15px 0;
-        min-height: 40px;
-      }
+    p.description {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 30px;
+      text-align: left;
+    }
 
-      .placeholder-box p {
-        font-size: 18px;
-        color: #555;
-        line-height: 1.6;
-        margin: 0 auto 30px auto;
-        max-width: 800px; 
-        min-height: 80px;
-      }
+    .description ul {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
 
-      .step-button {
-        background-color: royalblue;
-        color: white;
-        border: none;
-        padding: 15px 30px;
-        font-size: 18px;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: bold;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.2s ease;
-      }
+    .description li {
+      margin-bottom: 10px;
+    }
 
-      .step-button:hover {
-        background-color: #27408B;
-      }
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
 
-      .step-counter {
-        margin-top: 20px;
-        font-size: 14px;
-        color: #888;
-        font-weight: bold;
-      }
-    </style>
-  </head>
-  <body>
-    <a href="index.html" class="back-button">← Back to Main Page</a>
+    .btn {
+      background-color: #4169E1;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-    <header>
-      <h1>Interactive Infographic</h1>
-      <p>Created by Jayden Joseph</p>
-    </header>
+    .btn:hover {
+      background-color: #27408B;
+    }
+
+    .step-indicator {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #888;
+      font-weight: bold;
+    }
+
+    .extended-content {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    .extended-content h3 {
+      color: #4169E1;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 10px;
+    }
+
+    .sources-list {
+      font-size: 14px;
+      color: #555;
+      word-break: break-word;
+    }
+
+    .sources-list li {
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-banner">
+    <h1>Wave of Technology Infographic</h1>
+    <p>Created by Jayden Joseph</p>
+  </header>
+
+  <!-- Instruction Line -->
+  <p class="instruction-text">💡 Tip: Use the buttons to cycle through the interactive infographic before scrolling down.</p>
+
+  <div class="infographic-container">
+    <img id="wave-image" class="wave-img" src="ai-wave.jpg" alt="Technology Wave">
+    <h2 id="wave-title">The Coming Wave of Technology</h2>
+    <div id="wave-description" class="description"></div>
     
-    <div class="infographic-container">
-      <div class="placeholder-box">
-        <!-- Default starting slide is now the AI Wave Intro -->
-        <img id="wave-image" src="ai-wave.jpg" alt="The Coming Wave" class="wave-img">
-        
-        <h2 id="wave-title">1. The Coming Wave: AI & Proliferation</h2>
-        <p id="wave-description">Mustafa Suleyman defines the "coming wave" as a surge of artificial intelligence and synthetic biology. Fueled by massive global investment, technological waves compound over time, making immense power increasingly accessible, cheaper, and faster.</p>
-        
-        <button class="step-button" id="next-btn" onclick="nextStep()">Next Wave ➔</button>
-        <div class="step-counter" id="step-counter">Step 1 of 5</div>
-      </div>
+    <div class="button-group">
+      <button id="prev-btn" class="btn" onclick="prevWave()">⬅ Previous</button>
+      <button id="next-btn" class="btn" onclick="nextWave()">First Wave ➔</button>
     </div>
+    
+    <div class="step-indicator" id="step-counter">Step 1 of 7</div>
+  </div>
 
-    <footer style="text-align: center; color: rgba(255, 255, 255, 0.6); padding: 20px 20px 40px 20px; font-size: 14px;">
-      <p>Content adapted from: Suleyman, M. <em>The Coming Wave</em>.</p>
-    </footer>
+  <div class="extended-content" id="data-graphs">
+    <h3>Data & Analysis: The Compute Explosion</h3>
+    <p>As the "coming wave" accelerates, the sheer mathematical load required to train modern artificial intelligence has skyrocketed. This chart illustrates the exponential growth in training computation, measured in petaFLOPs (one quadrillion floating-point operations). This massive demand for processing power is the primary catalyst driving the hardware industry away from standard transistors and toward next-generation architectures like neuromorphic computing and photonic matrix multipliers.</p>
+    
+    <iframe src="https://ourworldindata.org/grapher/exponential-growth-of-computation-in-the-training-of-notable-ai-systems" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+  </div>
 
-    <script>
-      // The array now has 5 steps, starting with the new introduction
-      const waveData = [
-        {
-          image: "ai-wave.jpg",
-          title: "1. The Coming Wave: AI & Proliferation",
-          description: "Mustafa Suleyman defines the 'coming wave' as a surge of artificial intelligence and synthetic biology. Fueled by massive global investment, technological waves compound over time, making immense power increasingly accessible, cheaper, and faster."
-        },
-        {
-          image: "vacuum-tube.jpg",
-          title: "2. The Vacuum Tube Era (1940s)",
-          description: "Driven by great power conflict, early computers like the ENIAC emerged as eight-foot-tall behemoths capable of three hundred operations a second using 18,000 vacuum tubes."
-        },
-        {
-          image: "transistor.jpg",
-          title: "3. The Transistor Breakthrough (1947)",
-          description: "Bell Labs created the transistor, a semiconductor creating 'logic gates' to perform calculations. This laid the true basis for the digital age."
-        },
-        {
-          image: "silicon-chip.jpg",
-          title: "4. Turbo-Proliferation (1960s)",
-          description: "By imprinting multiple transistors on silicon wafers, computational power skyrocketed. Gordon Moore proposed his eponymous 'law', marking an upward curve of exponential growth."
-        },
-        {
-          image: "internet.jpg",
-          title: "5. Mass Interconnectedness (Present)",
-          description: "From just 362 computers on the primordial internet in 1983 to an estimated 14 billion connected devices today, computing has mushroomed to envelop almost every aspect of life."
-        }
-      ];
+  <div class="extended-content" id="sources">
+    <h3>Sources & Further Reading</h3>
+    <ul class="sources-list">
+      <li><strong>Suleyman, Mustafa.</strong> <em>The Coming Wave: Technology, Power, and the Twenty-first Century's Greatest Dilemma.</em> Crown Publishing Group, 2023.</li>
+      <li><strong>Britannica, The Editors of Encyclopaedia.</strong> "History of computing hardware." <em>Encyclopedia Britannica</em>. <a href="https://www.britannica.com/technology/history-of-computing">https://www.britannica.com/technology/history-of-computing</a></li>
+      <li><strong>Computer History Museum.</strong> "Timeline of Computer History: Computers." <em>CHM</em>. <a href="https://www.computerhistory.org/timeline/computers/">https://www.computerhistory.org/timeline/computers/</a></li>
+      <li><strong>Nokia Bell Labs.</strong> "1956 Nobel Prize in Physics: The Transistor." <em>Bell Labs Innovations</em>.</li>
+      <li><strong>Harvard University Science in the News.</strong> "The History of Artificial Intelligence." <em>SITN</em>. <a href="https://sitn.hms.harvard.edu/flash/2017/history-artificial-intelligence/">https://sitn.hms.harvard.edu/flash/2017/history-artificial-intelligence/</a></li>
+      <li><strong>IEEE Spectrum.</strong> "The Hybrid Bonding Revolution in Semiconductor Packaging." <em>IEEE</em>.</li>
+      <li><strong>Nature Photonics.</strong> "Photonic matrix multiplication for high-speed neural networks." <em>Nature</em>.</li>
+      <li><strong>ScienceDirect.</strong> "Memristive devices for neuromorphic computing." <em>Materials Today</em>.</li>
+      <li><strong>Our World in Data.</strong> "Exponential growth of computation in the training of notable AI systems." <em>OurWorldInData.org</em>. <a href="https://ourworldindata.org/grapher/exponential-growth-of-computation-in-the-training-of-notable-ai-systems">https://ourworldindata.org/grapher/exponential-growth-of-computation-in-the-training-of-notable-ai-systems</a></li>
+    </ul>
+  </div>
 
-      let currentStep = 0;
+  <script>
+    const waveData = [
+      {
+        title: "The Coming Wave of Technology",
+        image: "ai-wave.jpg",
+        description: `<p>Technology has undergone massive transformations over time, evolving from floor-sized mainframes to the portable devices in our pockets. The artificial intelligence we know today stems from foundational testing between the 1950s and 1990s, originating with concepts like the Turing test and the 1956 Dartmouth Conference.</p> 
+        <p>However, as this technology advances, it follows a "seemingly immutable law: it gets cheaper and easier to use, and ultimately it proliferates, far and wide" (Suleyman). We are currently standing at the brink of a new era of exponential innovation driven by AI and synthetic biology. While this coming wave promises to create unprecedented wealth and cure diseases, its uncontained spread threatens to empower bad actors and unleash immense disruption. Because the ecosystem of invention defaults to expansion, humanity now faces the ultimate challenge of trying to contain the uncontrollable.</p>`
+      },
+      {
+        title: "1. The Vacuum Tube Era (1900s - 1940s)",
+        image: "vacuum-tube.jpg",
+        description: `<p>John Ambrose Fleming's invention of the first vacuum tube in 1904 marked the dawn of electronic computing. By controlling the flow of electric currents within a high-vacuum glass bulb, these tubes functioned as the world's first electronic switches (Britannica).</p> 
+        <p>After iterative improvements revolutionized radio, telephone, and television broadcasting, engineers realized these tubes could act as basic logic gates, physically bridging the gap between raw hardware circuits and computational instructions (Computer History Museum). By the 1940s, massive digital computers like the British Colossus and the American ENIAC relied on tens of thousands of these vacuum tubes to process data. While revolutionary, they were fragile, generated immense heat, and required constant physical maintenance—highlighting the desperate need for technology to become smaller, cheaper, and more efficient.</p>`
+      },
+      {
+        title: "2. The Transistor Breakthrough (1947)",
+        image: "transistor.jpg",
+        description: `<p>In December 1947, physicists John Bardeen, Walter Brattain, and William Shockley at Bell Labs successfully created the first working point-contact transistor (Nokia Bell Labs). This solid-state semiconductor device revolutionized electronics by amplifying electrical signals without the need for the fragile glass, glowing filaments, or vacuum seals found in earlier tubes.</p>
+        <p>Because transistors were drastically smaller, highly durable, and generated a fraction of the heat and power consumption of their predecessors, they allowed technology to rapidly shrink and proliferate. This fundamental shift from bulky tubes to miniaturized solid-state components paved the way for the digital age. Today, the transistor acts as the microscopic foundation for virtually all electronic devices, powering everything from our smartphones and laptops to massive digital storage systems.</p>`
+      },
+      {
+        title: "3. The Birth of Artificial Intelligence (1950s - 1980s)",
+        image: "early-ai.jpg",
+        description: `<p>Shortly after the invention of the transistor, visionaries began wondering if machines could be programmed to think. In 1950, mathematician Alan Turing proposed the "Turing Test" as a framework to measure machine intelligence. Just six years later, the historic 1956 Dartmouth Summer Research Project officially coined the term "Artificial Intelligence" (Harvard University).</p>
+        <p>During these early decades, computer scientists successfully created software programs that could solve algebra word problems, prove logical theorems, and even learn to play checkers. However, this initial wave of AI eventually hit a wall known as the "AI Winter." The theoretical math and software code were brilliant, but standard 20th-century transistor hardware simply wasn't fast or powerful enough to run complex neural networks.</p>`
+      },
+      {
+        title: "4. The Hardware Revolution & Modern AI (2000s - Present)",
+        image: "ai-wave2.jpg",
+        description: `<p>To break through the limitations of classic transistors and power modern AI, engineers completely revolutionized how computers are built:</p>
+        <ul>
+          <li><strong>2010s — 3D Chip Stacking:</strong> Instead of laying out circuits flat on a silicon board, manufacturers began stacking processors and memory vertically like skyscrapers. This technique, called <em>Advanced 3D Packaging and Hybrid Bonding</em>, eliminates data traffic jams by moving information incredibly fast over tiny distances (IEEE Spectrum).</li>
+          <li><strong>Late 2010s — Computing with Light:</strong> Standard chips push electricity through copper wires, which creates heat and slows things down. New designs use beams of light to execute massive math operations instantly with virtually zero heat—an emerging technology known as <em>Photonic Matrix Multipliers</em> (Nature Photonics).</li>
+          <li><strong>2020s — Brain-Inspired Circuits:</strong> To cut down on energy waste, engineers developed hardware that physically mimics human brain synapses. Using special components called <em>Neuromorphic Memristors</em>, computers can process data much like a biological brain (ScienceDirect).</li>
+        </ul>
+        <p>This specialized hardware finally unlocked the early dreams of the 1950s, powering the massive AI industry that has transitioned AI from a background concept into an interactive, everyday tool.</p>`
+      },
+      {
+        title: "5. Mass Interconnectedness (Present)",
+        image: "internet.png",
+        description: `<p>While advanced hardware made modern AI possible, the internet is what makes it unstoppable. From just 362 computers on the primordial internet in 1983 to an estimated 14 billion connected devices today, computing has mushroomed to envelop almost every aspect of life.</p>
+        <p>This mass interconnectedness forms the digital nervous system for the coming wave, allowing Artificial Intelligence and data to flow instantly across the globe. As Mustafa Suleyman notes, this sprawling, global network ensures that once new technologies are developed, they immediately proliferate to every corner of society, making global containment virtually impossible.</p>`
+      },
+      {
+        title: "Explore the Data & Sources",
+        image: "ai-wave.jpg",
+        description: `<p><strong>Thank you for exploring the Wave of Technology!</strong></p>
+        <p>The historical facts, architectural breakdowns, and technical specifications presented in this interactive infographic are backed by leading industry research and historical archives.</p>
+        <p>⬇️ <strong>Please scroll down</strong> below this presentation to explore the interactive compute graph from <em>Our World in Data</em> and view the complete bibliography of sources.</p>`
+      }
+    ];
 
-      function nextStep() {
-        currentStep = (currentStep + 1) % waveData.length;
+    let currentIndex = 0;
+
+    window.onload = () => {
+      updateWave(0);
+    };
+
+    function updateWave(index) {
+      document.getElementById("wave-title").innerHTML = waveData[index].title;
+      document.getElementById("wave-image").src = waveData[index].image;
+      document.getElementById("wave-description").innerHTML = waveData[index].description;
+      document.getElementById("step-counter").innerText = "Step " + (index + 1) + " of " + waveData.length;
+
+      const nextBtn = document.getElementById("next-btn");
+      const prevBtn = document.getElementById("prev-btn");
+
+      if (index === 0) {
+        prevBtn.style.display = "none";
+        nextBtn.innerText = "First Wave ➔";
+      } else {
+        prevBtn.style.display = "inline-block";
         
-        document.getElementById("wave-image").src = waveData[currentStep].image;
-        document.getElementById("wave-image").alt = waveData[currentStep].title;
-        
-        document.getElementById("wave-title").textContent = waveData[currentStep].title;
-        document.getElementById("wave-description").textContent = waveData[currentStep].description;
-        document.getElementById("step-counter").textContent = `Step ${currentStep + 1} of ${waveData.length}`;
-        
-        if (currentStep === waveData.length - 1) {
-          document.getElementById("next-btn").textContent = "Restart Sequence ↺";
+        if (index === waveData.length - 1) { // Step 7
+          nextBtn.innerText = "Restart Sequence ↻";
+        } else if (index === 5) { // Visual Step 6
+          nextBtn.innerText = "Extra Details ➔";
         } else {
-          document.getElementById("next-btn").textContent = "Next Wave ➔";
+          nextBtn.innerText = "Next Wave ➔";
         }
       }
-    </script>
-  </body>
+    }
+
+    function prevWave() {
+      currentIndex--;
+      if (currentIndex < 0) {
+        currentIndex = waveData.length - 1;
+      }
+      updateWave(currentIndex);
+    }
+
+    function nextWave() {
+      currentIndex++;
+      if (currentIndex >= waveData.length) {
+        currentIndex = 0;
+      }
+      updateWave(currentIndex);
+    }
+  </script>
+</body>
 </html>
