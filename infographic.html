@@ -15,12 +15,31 @@
     }
 
     .top-banner {
+      position: relative;
       background-color: #27408B;
       color: #ffffff;
       text-align: center;
       padding: 45px 20px;
       margin-bottom: 30px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .back-link {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 8px 15px;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    .back-link:hover {
+      background: rgba(255, 255, 255, 0.35);
     }
 
     .top-banner h1 {
@@ -149,6 +168,7 @@
 <body>
 
   <header class="top-banner">
+    <a href="index.html" class="back-link">⬅ Back to Human Artifact</a>
     <h1>Wave of Technology Infographic</h1>
     <p>Created by Jayden Joseph</p>
   </header>
@@ -171,7 +191,7 @@
 
   <div class="extended-content" id="data-graphs">
     <h3>Data & Analysis: The AI Investment Explosion</h3>
-    <p>As the AI "coming wave" accelerates, investment in artificial intelligence has increased dramatically. This chart shows the rapid growth in global corporate deals involving privately held AI companies, including private investments, mergers and acquisitions, public offerings, and minority stakes. The sharp rise in investment illustrates the growing amount of financial resources flowing into the AI industry as demand for increasingly powerful computing systems continues to expand.</p>
+    <p>As the AI wave accelerates, investment in artificial intelligence has grown significantly. This chart shows the rising trend in global corporate deals involving private AI companies, including private funding, mergers, acquisitions, and minority stakes. This increase in funding highlights the growing financial resources moving into the AI industry as demand for stronger computing systems expands.</p>
     
     <iframe src="https://ourworldindata.org/grapher/corporate-investment-in-artificial-intelligence-by-type" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
   </div>
@@ -180,8 +200,7 @@
     <h3>Sources & Further Reading</h3>
     <ul class="sources-list">
       <li><strong>Suleyman, Mustafa.</strong> <em>The Coming Wave: Technology, Power, and the Twenty-first Century's Greatest Dilemma.</em> Crown Publishing Group, 2023.</li>
-      <li><strong>Britannica, The Editors of Encyclopaedia.</strong> "History of computing hardware." <em>Encyclopedia Britannica</em>. <a href="https://www.britannica.com/technology/history-of-computing">https://www.britannica.com/technology/history-of-computing</a></li>
-      <li><strong>Computer History Museum.</strong> "Timeline of Computer History: Computers." <em>CHM</em>. <a href="https://www.computerhistory.org/timeline/computers/">https://www.computerhistory.org/timeline/computers/</a></li>
+      <li><strong>Computer History Museum.</strong> "Timeline of Computer History & The Vacuum Tube Era." <em>CHM</em>. <a href="https://www.computerhistory.org/timeline/computers/">https://www.computerhistory.org/timeline/computers/</a></li>
       <li><strong>Nokia Bell Labs.</strong> "1956 Nobel Prize in Physics: The Transistor." <em>Bell Labs Innovations</em>.</li>
       <li><strong>Harvard University Science in the News.</strong> "The History of Artificial Intelligence." <em>SITN</em>. <a href="https://sitn.hms.harvard.edu/flash/2017/history-artificial-intelligence/">https://sitn.hms.harvard.edu/flash/2017/history-artificial-intelligence/</a></li>
       <li><strong>IEEE Spectrum.</strong> "The Hybrid Bonding Revolution in Semiconductor Packaging." <em>IEEE</em>.</li>
@@ -197,49 +216,49 @@
       {
         title: "The Coming Wave of Technology",
         image: "ai-wave.jpg",
-        description: `<p>Technology has undergone massive transformations over time, evolving from floor-sized mainframes to the portable devices in our pockets. The artificial intelligence we know today stems from foundational testing between the 1950s and 1990s, originating with concepts like the Turing test and the 1956 Dartmouth Conference.</p> 
-        <p>However, as this technology advances, it follows a "seemingly immutable law: it gets cheaper and easier to use, and ultimately it proliferates, far and wide" (Suleyman). We are currently standing at the brink of a new era of exponential innovation driven by AI and synthetic biology. While this coming wave promises to create unprecedented wealth and cure diseases, its uncontained spread threatens to empower bad actors and unleash immense disruption. Because the ecosystem of invention defaults to expansion, humanity now faces the ultimate challenge of trying to contain the uncontrollable.</p>`
+        description: `<p>Computing has come a long way from room-filling mainframes to the small devices we carry everywhere today. The core ideas behind artificial intelligence trace back decades to early experiments like the Turing test and the 1956 Dartmouth Conference.</p> 
+        <p>However, as these tools grow, they tend to follow a predictable pattern: "It gets cheaper and easier to use, and ultimately it proliferates, far and wide" (Suleyman). We are now watching a major push in technology and automation. While this new wave brings major benefits like solving complex problems and building wealth, its rapid spread also creates serious risks and heavy disruption. Because creators naturally want to expand their work, society is left trying to figure out how to manage tools that seem difficult to hold back.</p>`
       },
       {
         title: "1. The Vacuum Tube Era (1900s - 1940s)",
         image: "vacuum-tube.jpg",
-        description: `<p>John Ambrose Fleming's invention of the first vacuum tube in 1904 marked the dawn of electronic computing. By controlling the flow of electric currents within a high-vacuum glass bulb, these tubes functioned as the world's first electronic switches (Britannica).</p> 
-        <p>After iterative improvements revolutionized radio, telephone, and television broadcasting, engineers realized these tubes could act as basic logic gates, physically bridging the gap between raw hardware circuits and computational instructions (Computer History Museum). By the 1940s, massive digital computers like the British Colossus and the American ENIAC relied on tens of thousands of these vacuum tubes to process data. While revolutionary, they were fragile, generated immense heat, and required constant physical maintenance—highlighting the desperate need for technology to become smaller, cheaper, and more efficient.</p>`
+        description: `<p>John Ambrose Fleming invented the first vacuum tube in 1904, marking the beginning of electronic computing. By controlling electric currents inside a glass bulb, these tubes worked as early electronic switches (Computer History Museum).</p> 
+        <p>After improving radio and television technology, engineers realized these tubes could also act as basic logic gates to process instructions (Computer History Museum). By the 1940s, large computers like the ENIAC used thousands of these tubes. While helpful, they were fragile, produced a lot of heat, and needed constant repairs, which showed that technology needed to become smaller and more reliable.</p>`
       },
       {
         title: "2. The Transistor Breakthrough (1947)",
         image: "transistor.jpg",
-        description: `<p>In December 1947, physicists John Bardeen, Walter Brattain, and William Shockley at Bell Labs successfully created the first working point-contact transistor (Nokia Bell Labs). This solid-state semiconductor device revolutionized electronics by amplifying electrical signals without the need for the fragile glass, glowing filaments, or vacuum seals found in earlier tubes.</p>
-        <p>Because transistors were drastically smaller, highly durable, and generated a fraction of the heat and power consumption of their predecessors, they allowed technology to rapidly shrink and proliferate. This fundamental shift from bulky tubes to miniaturized solid-state components paved the way for the digital age. Today, the transistor acts as the microscopic foundation for virtually all electronic devices, powering everything from our smartphones and laptops to massive digital storage systems.</p>`
+        description: `<p>In December 1947, physicists at Bell Labs created the first working transistor (Nokia Bell Labs). This solid-state part amplified electrical signals without needing the fragile glass and glowing filaments of older vacuum tubes.</p>
+        <p>Because transistors were tiny, durable, and used very little power, they allowed electronics to shrink rapidly. This shift from bulky tubes to solid parts paved the way for modern digital devices. Today, transistors serve as the microscopic foundation for almost all electronics, from smartphones to laptops.</p>`
       },
       {
         title: "3. The Birth of Artificial Intelligence (1950s - 1980s)",
         image: "early-ai.jpg",
-        description: `<p>Shortly after the invention of the transistor, visionaries began wondering if machines could be programmed to think. In 1950, mathematician Alan Turing proposed the "Turing Test" as a framework to measure machine intelligence. Just six years later, the historic 1956 Dartmouth Summer Research Project officially coined the term "Artificial Intelligence" (Harvard University).</p>
-        <p>During these early decades, computer scientists successfully created software programs that could solve algebra word problems, prove logical theorems, and even learn to play checkers. However, this initial wave of AI eventually hit a wall known as the "AI Winter." The theoretical math and software code were brilliant, but standard 20th-century transistor hardware simply wasn't fast or powerful enough to run complex neural networks.</p>`
+        description: `<p>Shortly after the transistor was invented, scientists started exploring if machines could think. In 1950, Alan Turing proposed a test to measure machine intelligence, and the 1956 Dartmouth Conference officially named the field artificial intelligence (Harvard University).</p>
+        <p>During these early years, researchers built programs that could solve basic math and play games. However, progress slowed down during a period known as the AI Winter. The software ideas were strong, but the standard transistor hardware of that era simply was not fast or powerful enough to run large neural networks.</p>`
       },
       {
         title: "4. The Hardware Revolution & Modern AI (2000s - Present)",
         image: "ai-wave2.jpg",
-        description: `<p>To break through the limitations of classic transistors and power modern AI, engineers completely revolutionized how computers are built:</p>
+        description: `<p>To overcome the limits of old transistors and run modern AI, engineers completely changed how computer chips are built:</p>
         <ul>
-          <li><strong>2010s — 3D Chip Stacking:</strong> Instead of laying out circuits flat on a silicon board, manufacturers began stacking processors and memory vertically like skyscrapers. This technique, called <em>Advanced 3D Packaging and Hybrid Bonding</em>, eliminates data traffic jams by moving information incredibly fast over tiny distances (IEEE Spectrum).</li>
-          <li><strong>Late 2010s — Computing with Light:</strong> Standard chips push electricity through copper wires, which creates heat and slows things down. New designs use beams of light to execute massive math operations instantly with virtually zero heat—an emerging technology known as <em>Photonic Matrix Multipliers</em> (Nature Photonics).</li>
-          <li><strong>2020s — Brain-Inspired Circuits:</strong> To cut down on energy waste, engineers developed hardware that physically mimics human brain synapses. Using special components called <em>Neuromorphic Memristors</em>, computers can process data much like a biological brain (ScienceDirect).</li>
+          <li><strong>3D Chip Stacking:</strong> Instead of laying circuits flat on a board, manufacturers stack processors and memory vertically like floors in a skyscraper to move data faster over shorter distances (IEEE Spectrum).</li>
+          <li><strong>Computing with Light:</strong> Traditional chips push electricity through copper wires, which creates heat. Newer designs use beams of light to perform math operations instantly with almost no heat (Nature Photonics).</li>
+          <li><strong>Brain-Inspired Circuits:</strong> To save energy, engineers built hardware that mimics human brain synapses using specialized components called memristors (ScienceDirect).</li>
         </ul>
-        <p>This specialized hardware finally unlocked the early dreams of the 1950s, powering the massive AI industry that has transitioned AI from a background concept into an interactive, everyday tool.</p>`
+        <p>This new hardware finally brought the goals of the 1950s to life, powering the modern AI tools we use today.</p>`
       },
       {
         title: "5. Mass Interconnectedness (Present)",
         image: "internet.jpg",
-        description: `<p>While advanced hardware made modern AI possible, the internet is what makes it unstoppable. From just 362 computers on the primordial internet in 1983 to an estimated 14 billion connected devices today, computing has mushroomed to envelop almost every aspect of life.</p>
-        <p>I have seen how much technology is being added to the things we use every day. For example, banks, schools, and jobs are all adding some form of tech and AI into their systems. This mass interconnectedness forms the digital nervous system for the coming wave, allowing Artificial Intelligence and data to flow instantly across the globe. As Mustafa Suleyman notes, this sprawling, global network ensures that once new technologies are developed, they immediately proliferate to every corner of society, making global containment virtually impossible.</p>`
+        description: `<p>While advanced hardware made modern AI possible, the internet is what makes it spread everywhere. From just a few hundred computers in the early days to billions of connected devices today, computing now touches almost every part of daily life.</p>
+        <p>I have seen how much technology is being added to the things we use every day. For example, banks, schools, and jobs are all adding some form of tech and AI into their systems. This massive network allows AI and data to move instantly across the globe. As Mustafa Suleyman notes, this connected network ensures that once new technologies are developed, they spread everywhere quickly, making global control very difficult.</p>`
       },
       {
         title: "Explore the Data & Sources",
         description: `<p><strong>Thank you for exploring the Wave of Technology!</strong></p>
-        <p>The historical facts, architectural breakdowns, and technical specifications presented in this interactive infographic are backed by leading industry research and historical archives.</p>
-        <p>⬇️ <strong>Please scroll down</strong> below this presentation to explore the interactive investment graph from <em>Our World in Data</em> and view the complete bibliography of sources.</p>`
+        <p>The historical facts, hardware breakdowns, and details presented in this interactive infographic are supported by industry research and historical records.</p>
+        <p>⬇️ <strong>Please scroll down</strong> below this presentation to view the interactive investment graph and the complete source list.</p>`
       }
     ];
 
@@ -272,9 +291,9 @@
       } else {
         prevBtn.style.display = "inline-block";
         
-        if (index === waveData.length - 1) { // Step 7
+        if (index === waveData.length - 1) {
           nextBtn.innerText = "Restart Sequence ↻";
-        } else if (index === 5) { // Visual Step 6
+        } else if (index === 5) {
           nextBtn.innerText = "Extra Details ➔";
         } else {
           nextBtn.innerText = "Next Wave ➔";
